@@ -1,0 +1,8 @@
+# requirements.txt
+# --- Utilities & Evaluation ---
+tqdm>=4.66.4
+psutil>=6.0.0
+jiwer>=3.0.4
+pandas>=2.2.3
+matplotlib>=3.0.0 # Add this for plotting training progress
+scikit-build    

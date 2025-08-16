@@ -1,0 +1,37 @@
+# config/config.yaml
+# Single source of truth for all pipeline parameters
+
+# --- 1. General Project Settings ---
+project_name: "apoka_tts_project"
+language_code: "hu"
+espeak_voice: "hu"
+
+# --- 2. Directory Paths (relative to project root) ---
+data_base_dir: "/Volumes/WinDrive/Projects/apoka_tts_project/data/"
+logs_dir: "logs"
+log_level: INFO
+models_dir: "models"
+onnx_export_dir: "models/exported_onnx"
+training_checkpoint_dir: "models/checkpoints"
+piper_dataset_subdir: "/Volumes/WinDrive/Projects/apoka_tts_project/data/05_piper_dataset"
+inference_output_subdir: "models/inference_output"
+
+piper_training:
+  voice_name: "apoka-v1"
+  base_checkpoint_path: "models/base_models/epoch=5669-step=1607900.ckpt"
+  base_checkpoint_url: "https://huggingface.co/rhasspy/piper-checkpoints/resolve/main/hu/hu_HU/imre/medium/epoch=5669-step=1607900.ckpt"
+  validation_split: 0.05  # Add this line (0.05 = 5%)
+  max_epochs: 5671
+  batch_size: 4
+  seed: 42
+  learning_rate: 0.00001
+
+# --- Inference Validation (08_inference_validation.py) ---
+inference_validation:
+  # Test sentences can be customized here
+  test_sentences:
+    - "Lenn délen, meseszép éjen édes édent remélsz."
+    - "Az eső Hispániában főleg a síkon esik."
+    - "A szavak mély tengerén úszkálj könnyedén, mint egy darab jég."
+    - "Nem a tehened tehetetlen, hanem te vagy tehetetlen a teheneddel."
+    # Add more test sentences here if needed
